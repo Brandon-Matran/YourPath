@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AutomobileForm from './AutomobilesForm';
 import MainPage from './MainPage';
 import Nav from './Nav';
 
@@ -9,6 +10,7 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
+          <Route path="/automobiles/new" element={<AutomobileForm />} />
         </Routes>
       </div>
     </BrowserRouter>
