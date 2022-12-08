@@ -20,16 +20,28 @@ function Nav() {
               <NavLink className="nav-link" to="/hats">List of Manufacturers</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/hats/new">Create Vehicle Model</NavLink>
+              <NavLink className="nav-link" to="/models/new">Create Vehicle Model</NavLink>
             </li>
             <li>
-              <NavLink className="nav-link" to="/shoes/new">List of Vehicle Models</NavLink>
+              <NavLink className="nav-link" to="/models">List of Vehicle Models</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/automobiles/new">Create Automobile</NavLink>
             </li>
             <li>
-              <NavLink className="nav-link" to="/shoes/new">List of Automobiles</NavLink>
+              <NavLink className="nav-link" to="/automobiles">List of Automobiles</NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link" to="/customers">Create a Customer</NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link" to="/sales_person/new">Create a SalesPerson</NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link" to="/sales">Sales Record List</NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link" to="/sales_history">Sales Record History</NavLink>
             </li>
           </ul>
         </div>

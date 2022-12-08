@@ -16,8 +16,8 @@ from sales_rest.models import AutoVO
 # from sales_rest.models import Something
 def get_auto():
     response = requests.get("http://inventory-api:8000/api/automobiles/")
+    print(response)
     content = json.loads(response.content)
-    print("THIS IS THE CONTENT ===============================", content)
     for automobile in content["autos"]:
         AutoVO.objects.update_or_create(
             color=automobile["color"],

@@ -6,6 +6,10 @@ class AutoVO(models.Model):
     year = models.PositiveSmallIntegerField()
     vin = models.CharField(max_length=17, unique=True)
 
+    def __str__(self):
+        return self.vin
+
+
 class Customer(models.Model):
     name = models.CharField(max_length=200)
     address = models.TextField(max_length=500, null=True)
@@ -27,19 +31,13 @@ class SaleRecord(models.Model):
     sale_price = models.IntegerField()
 
     customer = models.ForeignKey(
-        Customer,
-        related_name="sales",
-        on_delete=models.PROTECT
+        Customer, related_name="sales", on_delete=models.PROTECT
     )
 
     sales_person = models.ForeignKey(
-        SalesPerson,
-        related_name="sales",
-        on_delete=models.PROTECT
+        SalesPerson, related_name="sales", on_delete=models.PROTECT
     )
 
     automobile = models.ForeignKey(
-        AutoVO,
-        related_name="sales",
-        on_delete=models.PROTECT
+        AutoVO, related_name="sales", on_delete=models.PROTECT
     )

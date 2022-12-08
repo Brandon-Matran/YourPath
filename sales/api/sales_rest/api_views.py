@@ -173,34 +173,38 @@ def api_list_sales(request):
             safe=False
         )
     else:
-        try:
-            content = json.loads(request.body)
+        # try:
+        content = json.loads(request.body)
+        print(content)
 
-            sales_person_id = content["sales_person"]
-            sales_person = SalesPerson.objects.get(id=sales_person_id)
-            content["sales_person"] = sales_person
+        sales_person_id = content["sales_person"]
+        sales_person = SalesPerson.objects.get(id=sales_person_id)
+        content["sales_person"] = sales_person
 
-            customer_id = content["customer"]
-            customer = Customer.objects.get(id=customer_id)
-            customer["customer"] = customer
 
-            auto_id = content["automobile"]
-            print(auto_id)
-            automobile = AutoVO.objects.get(id=auto_id)
-            content["automobile"] = automobile
+        customer_id = content["customer"]
+        customer = Customer.objects.get(id=customer_id)
+        content["customer"] = customer
 
-            sale_record = SaleRecord.objects.create(**content)
-            return JsonResponse(
-                sale_record,
-                encoder=SaleRecordEncoder,
-                safe=False
-            )
-        except:
-            response = JsonResponse(
-                {"message": "Unable to make Sales record"}
-                )
-            response.status_code = 400
-            return response
+
+        vin_key = content["automobile"]
+        automobile = AutoVO.objects.get(vin=vin_key)
+        content["automobile"] = automobile
+
+
+        sale_record = SaleRecord.objects.create(**content)
+        print(sale_record)
+        return JsonResponse(
+            sale_record,
+            encoder=SaleRecordEncoder,
+            safe=False
+        )
+        # except:
+            # response = JsonResponse(
+            #     {"message": "Unable to make Sales record"}
+            #     )
+            # response.status_code = 400
+            # return response
 
 
 #Details of each sale along with Delete and Update option
@@ -252,3 +256,17 @@ def api_show_sale(request, id):
             response = JsonResponse({"Message": "Sales Record does not exist"})
             response.status_code = 404
             return response
+
+
+#Filter salesperson and show sales history(customer, VIN, sale price)
+
+@require_http_methods(["GET"])
+def api_show_sales_history(request, id):
+    if request.method == "GET":
+        sales_history = SaleRecord.objects.get(id=id)
+        print(sales_history)
+    return JsonResponse(
+        {"sales_history" : sales_history},
+        SaleRecordEncoder,
+        safe=False
+    )

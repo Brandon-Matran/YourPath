@@ -6,7 +6,8 @@ from .api_views import (
     api_list_sales,
     api_show_sale,
     api_list_sales_person,
-    api_show_sales_person
+    api_show_sales_person,
+    api_show_sales_history,
 )
 
 urlpatterns = [
@@ -39,4 +40,7 @@ urlpatterns = [
     api_show_sales_person,
     name="api_show_sales_person"
     ),
+    path("sales_history/<int:id>/",
+    api_show_sales_history,
+    name="api_show_sales_history")
 ]
