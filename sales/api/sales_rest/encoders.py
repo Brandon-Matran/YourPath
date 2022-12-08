@@ -7,7 +7,8 @@ class AutoVOEncoder(ModelEncoder):
     properties = [
         "color",
         "year",
-        "vin"
+        "vin",
+        "is_sold"
     ]
 
 class CustomerEncoder(ModelEncoder):

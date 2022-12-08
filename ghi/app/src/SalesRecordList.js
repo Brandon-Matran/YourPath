@@ -35,7 +35,7 @@ const SalesList = () =>  {
             </thead>
             <tbody>
                 {sales.map(sale => {
-                    console.log(sale)
+               
                     return (
                         <tr key={sale.href}>
                             <td>{sale.sales_person.name}</td>

@@ -13,17 +13,6 @@ class AutomobileList extends React.Component {
 
 
 
-    async delete (id) {
-        const url = `http://localhost:8100/api/automobiles/${id}`
-        const fetchConfig = {
-            method: `delete`,
-        }
-        const response = await  fetch(url, fetchConfig)
-        if (response.ok) {
-            this.componentDidMount()
-        }
-    }
-
     render(){
     return(
         <div className="container">

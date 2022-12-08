@@ -210,7 +210,7 @@ class SalesRecordForm extends React.Component {
 
     handleAutomobileChange(event) {
         const value = event.target.value
-        this.setState({ automobile: value })
+        this.setState({ automobile : value })
     }
 
     handleSalesPersonChange(event) {
@@ -244,20 +244,17 @@ class SalesRecordForm extends React.Component {
 
         if (automobileResponse.ok) {
             const automobileData = await automobileResponse.json();
-            console.log(automobileData)
             let result = []
-            for (let automobile of automobileData.autos) {
-                if (is_sold === false) {
+            for (let automobile in automobileData.autos) {
+                if (automobile.is_sold === false) {
                     result.push(automobile)
                 }
             }
-            this.setState({ autos: automobileData.autos })
-
+            this.setState({ autos : automobileData.autos})
         }
 
-        if (salesPersonResponse.ok && customerResponse.ok) {
+        if (salesPersonResponse.ok &&  customerResponse.ok) {
             const salesPersonData = await salesPersonResponse.json();
-
             const customerData = await customerResponse.json();
 
             this.setState({ salesPersons: salesPersonData.sales_person })

@@ -290,7 +290,7 @@ def api_show_sales_history(request, id):
             sale_record = SaleRecord.objects.create(**content)
 
             return JsonResponse(
-                sale_record,
+                {"sale_record" :sale_record},
                 SaleRecordEncoder,
                 safe=False
             )

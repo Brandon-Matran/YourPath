@@ -25,7 +25,7 @@ const SalesPerson = () => {
     }
 
     const employeeUrl = 'http://localhost:8090/api/sales_person/'
-    console.log(employeeUrl)
+
     const fetchConfig = {
         method: 'post',
         body: JSON.stringify(newEmployee),

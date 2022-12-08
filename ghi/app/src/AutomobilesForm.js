@@ -99,7 +99,7 @@ class AutomobileForm extends React.Component {
                                     <select required onChange={this.handleModelChange} value={this.state.model_id} name="model" id="model" className="form-select">
                                         <option value="">Choose a model</option>
                                         {this.state.models.map(model_id => {
-                                            console.log(model_id)
+
                                             return (
                                                 <option key={model_id.id} value={model_id.id}>
                                                     {model_id.name}
