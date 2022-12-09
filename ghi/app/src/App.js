@@ -11,23 +11,24 @@ import SalesList from './SalesRecordList';
 import VehicleModelForm from './VehicleModelForm';
 import VehicleModelList from './VehicleModelList';
 
+
 function App() {
   return (
     <BrowserRouter>
       <Nav />
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/automobiles/new" element={<AutomobileForm />} />
-          <Route path="/automobiles" element={<AutomobileList />} />
-          <Route path="/models" element={<VehicleModelList />} />
-          <Route path="/models/new" element={<VehicleModelForm />} />
-          <Route path="/customers" element={<CustomerForm />}/>
-          <Route path="/sales_person/new" element={<SalesPerson />} />
-          <Route path="/sales" element={<SalesList />}/>
-          <Route path="/sales/new" element={<SalesRecordForm />} />
-          <Route path="/sales_history" element={<SalesRecordHistory/>}/>
-        </Routes>
+      <div className="container-fluid">
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/automobiles/new" element={<AutomobileForm />} />
+            <Route path="/automobiles" element={<AutomobileList />} />
+            <Route path="/models" element={<VehicleModelList />} />
+            <Route path="/models/new" element={<VehicleModelForm />} />
+            <Route path="/customers" element={<CustomerForm />} />
+            <Route path="/sales_person/new" element={<SalesPerson />} />
+            <Route path="/sales" element={<SalesList />} />
+            <Route path="/sales/new" element={<SalesRecordForm />} />
+            <Route path="/sales_history" element={<SalesRecordHistory />} />
+          </Routes>
       </div>
     </BrowserRouter>
   );

@@ -287,6 +287,7 @@ def api_show_sales_history(request, id):
             automobile = AutoVO.objects.get(vin=vin_key)
             content["automobile"] = automobile
 
+
             sale_record = SaleRecord.objects.create(**content)
 
             return JsonResponse(
@@ -300,3 +301,13 @@ def api_show_sales_history(request, id):
             )
             response.status_code = 400
             return response
+
+@require_http_methods(["GET"])
+def api_get_auto_vo_list(request):
+    if request.method == "GET":
+        automobiles = AutoVO.objects.all()
+        return JsonResponse(
+            automobiles,
+            AutoVOEncoder,
+            safe=False
+        )

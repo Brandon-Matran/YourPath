@@ -15,7 +15,7 @@ class AutomobileList extends React.Component {
 
     render(){
     return(
-        <div className="container">
+        <div className="container-fluid">
             <h1>Automobiles List</h1>
             <table className="table table-striped">
                     <thead>

@@ -235,28 +235,21 @@ class SalesRecordForm extends React.Component {
         const salesPersonResponse = await fetch(salesPersonUrl)
 
 
-        const automobileUrl = 'http://localhost:8100/api/automobiles/'
+        const automobileUrl = 'http://localhost:8090/api/autoVO/'
         const automobileResponse = await fetch(automobileUrl)
 
 
         const customerUrl = 'http://localhost:8090/api/customers/'
         const customerResponse = await fetch(customerUrl)
 
-        if (automobileResponse.ok) {
-            const automobileData = await automobileResponse.json();
-            let result = []
-            for (let automobile in automobileData.autos) {
-                if (automobile.is_sold === false) {
-                    result.push(automobile)
-                }
-            }
-            this.setState({ autos : automobileData.autos})
-        }
 
-        if (salesPersonResponse.ok &&  customerResponse.ok) {
+
+        if (automobileResponse.ok && salesPersonResponse.ok &&  customerResponse.ok) {
             const salesPersonData = await salesPersonResponse.json();
             const customerData = await customerResponse.json();
+            const automobileData = await automobileResponse.json();
 
+            this.setState({ autos : automobileData.filter((x) => x.is_sold === false )})
             this.setState({ salesPersons: salesPersonData.sales_person })
             this.setState({ customers: customerData.customer })
         }
