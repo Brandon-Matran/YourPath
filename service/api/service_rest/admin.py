@@ -1,15 +1,15 @@
 from django.contrib import admin
-from .models import VehicleVO, ServiceAppointment, Technician
+from .models import AutomobileVO, Appointment, Technician
 
 # Register your models here.
 
-@admin.register(VehicleVO)
+@admin.register(AutomobileVO)
 class VehicleVOAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(ServiceAppointment)
-class ServiceAppointmentAdmin(admin.ModelAdmin):
+@admin.register(Appointment)
+class AppointmentAdmin(admin.ModelAdmin):
     pass
 
 @admin.register(Technician)

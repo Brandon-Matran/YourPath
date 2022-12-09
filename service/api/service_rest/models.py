@@ -1,33 +1,35 @@
 from django.db import models
-from django.urls import reverse
 
 # Create your models here.
 
-class AutomobileVO(models.Model):
-    import_href = models.CharField(max_length=200, unique=True, null=True)
-    vin = models.CharField(max_length=17, unique=True)
-
-
 class Technician(models.Model):
     name = models.CharField(max_length=100)
-    employee_number = models.PositiveIntegerField(unique=True)
+    employee_number = models.CharField(max_length=100, unique=True)
 
-    def get_api_url(self):
-        return reverse("api_technician", kwargs={"pk": self.id})
+    def __str__(self):
+        return self.name
 
 
-class ServiceAppointment(models.Model):
-    vin = models.CharField(max_length=17)
-    owner_name = models.CharField(max_length=100)
-    appointment_date = models.DateTimeField
-    reason = models.CharField(max_length=500)
-    vin = models.CharField(max_length=17)
+class Appointment(models.Model):
+    vin = models.CharField(max_length=50)
+    owner = models.CharField(max_length=150)
+    scheduled_time = models.DateTimeField()
     technician = models.ForeignKey(
         Technician,
-        related_name="service_appointments",
-        on_delete=models.CASCADE,
-    )
-    status = models.CharField(max_length=25, default="scheduled")
+        related_name="appointment",
+        on_delete=models.PROTECT
+        )
+    reason = models.TextField()
+    status = models.BooleanField(default=False)
 
-    def get_api_url(self):
-        return reverse("api_service_appointment", kwargs={"pk": self.id})
+    def __str__(self):
+        return f"{self.owner}'s checkup for {self.reason}"
+
+
+class AutomobileVO(models.Model):
+    vin = models.CharField(max_length=50, unique=True)
+    import_href=models.CharField(max_length=35, null=True)
+
+    def __str__(self):
+        return f"{self.vin}"
+

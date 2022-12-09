@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleWare',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,6 +54,7 @@ ALLOWED_HOSTS = [
     "service-api",
     "localhost",
     "inventory-api",
+    "localhost:3000",
 ]
 
 CSRF_TRUSTED_ORIGINS = [

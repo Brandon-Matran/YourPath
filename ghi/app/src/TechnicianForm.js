@@ -1,29 +1,87 @@
-import React from 'react';
+import React from "react";
+
 
 class TechnicianForm extends React.Component {
-    
-    render() {
-        return (
-        <div className="row">
-          <div className="offset-3 col-6">
-            <div className="shadow p-4 mt-4">
-                <h1>Add a technician</h1>
-                <form onSubmit={this.handleSubmit} id="create-technician-form">
-                <div className="form-floating mb-3">
-                    <input value={this.state.name} onChange={this.handleNameChange} placeholder="name" required type="text" name="name" id="name" className="form-control" />
-                    <label htmlFor="name">name</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input value={this.state.employee_number} onChange={this.handleEmployeeNumberChange} placeholder="Employee Number" required type="text" name="employee_number" id="employee_number" className="form-control" />
-                    <label htmlFor="employee_number">Employee Number</label>
-                </div>
-                <button className="btn btn-primary">Create</button>
-                </form>
-            </div>
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      employee_number: "",
+    };
+  }
+
+  handleChange = (event) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({ [name]: value });
+  };
+
+  handleIDChange = (event) => {
+    const value = event.target.value;
+    const employee_number = event.target.name;
+    this.setState({ [employee_number]: value });
+  };
+
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = { ...this.state };
+    const url = "http://localhost:8080/api/technicians/";
+    const fetchConfig = {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const response = await fetch(url, fetchConfig);
+    if (response.ok) {
+      this.setState({
+        name: "",
+        employee_number: "",
+      });
+    }
+  };
+  render() {
+    return (
+      <div className="row">
+        <div className="offset-3 col-6">
+          <div className="shadow p-4 mt-4">
+            <h1>Create a new Technician</h1>
+            <form onSubmit={this.handleSubmit} id="create-technician-form">
+              <div className="form-floating mb-3">
+                <input
+                  required
+                  onChange={this.handleChange}
+                  placeholder="name"
+                  type="text"
+                  name="name"
+                  id="name"
+                  className="form-control"
+                  value={this.state.name}
+                />
+                <label htmlFor="name">Name</label>
+              </div>
+              <div className="form-floating mb-3">
+                <input
+                  required
+                  onChange={this.handleIDChange}
+                  placeholder="employee_number"
+                  type="text"
+                  name="employee_number"
+                  id="employee_number"
+                  className="form-control"
+                  value={this.state.employee_number}
+                />
+                <label htmlFor="employee_number">Employee ID</label>
+              </div>
+              <button className="btn btn-outline-secondary btn-lg px-2 gap-1">Create</button>
+            </form>
           </div>
         </div>
-        );
-    }
+      </div>
+    );
+  }
 }
 
 export default TechnicianForm;
