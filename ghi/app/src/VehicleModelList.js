@@ -12,19 +12,6 @@ class VehicleModelList extends React.Component {
     }
 
 
-
-    // async delete (id) {
-    //     const url = `http://localhost:8100/api/models/${id}`
-    //     const fetchConfig = {
-    //         method: `delete`,
-    //     }
-    //     const response = await  fetch(url, fetchConfig)
-    //     if (response.ok) {
-    //         console.log(`Automobile Deleted`)
-    //         this.componentDidMount()
-    //     }
-    // }
-
     render(){
     return(
         <div className="container-fluid">

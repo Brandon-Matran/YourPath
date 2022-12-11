@@ -46,7 +46,7 @@ class ServiceHistory extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container-fluid">
         <table className="table table-striped ">
           <thead className="table-dark">
             <tr>

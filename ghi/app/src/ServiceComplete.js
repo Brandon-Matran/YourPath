@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 
 export default function CompletedButton(props) {
+
+
   async function markAsFinished() {
     const data = props.appointment;
     const url = `http://localhost:8080/api/appointments/${data.id}/`;
@@ -14,7 +16,6 @@ export default function CompletedButton(props) {
       },
     };
 
-    await fetch(url, request);
   }
 
   return (
@@ -23,6 +24,7 @@ export default function CompletedButton(props) {
       onClick={markAsFinished}
     >
       Finished
+
     </button>
   );
 }

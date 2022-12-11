@@ -13,7 +13,6 @@ export default function SearchBar(props) {
 
       await fetch(url, request);
     }
-    //   console.log(JSON.stringify(props.appointment));
 
     return (
       <div class="input-group rounded">

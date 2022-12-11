@@ -67,15 +67,11 @@ class SalesRecordHistory extends React.Component {
 
     async handleSalesPersonChange(event) {
         const value = event.target.value;
-        //get a list of sales for specific sales person, using their employee id = value
         const personSalesUrl = `http://localhost:8090/api/sales_history/${value}`;
         const personSalesResponse = await fetch(personSalesUrl);
-        console.log(personSalesResponse)
 
         if (personSalesResponse.ok) {
             const personSalesData = await personSalesResponse.json();
-            console.log([personSalesData])
-
 
             this.setState({ salesHistory: [personSalesData] });
 
@@ -83,7 +79,6 @@ class SalesRecordHistory extends React.Component {
     }
 
     async componentDidMount() {
-        //list all sales people endpoint
         const salesPersonUrl = 'http://localhost:8090/api/sales_person/';
         const salesPersonResponse = await fetch(salesPersonUrl);
 
@@ -123,9 +118,10 @@ class SalesRecordHistory extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state?.salesHistory?.map(sale => {
+                        {this.state.salesHistory.map(sale => {
+                            console.log(sale)
                             return (
-                                <tr key={sale.id}>
+                                <tr key={sale.sales_history.id}>
                                     <td>{sale.sales_history.sales_person.name}</td>
                                     <td>{sale.sales_history.customer.name}</td>
                                     <td>{sale.sales_history.automobile.vin}</td>

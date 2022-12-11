@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CompletedButton from "./ServiceComplete";
 import DeleteButton from './ServiceDelete';
+import './index.css'
 
 class ServiceAppointmentList extends React.Component {
   state = {
@@ -29,7 +30,7 @@ class ServiceAppointmentList extends React.Component {
         automobiles.forEach((car) => (vinObj[car.vin] = car.vin));
 
         const appointments = data.appointments;
-        console.log(appointments)
+
 
         appointments.forEach((appointment) => {
           if (appointment.vin === vinObj[appointment.vin]) {
@@ -39,8 +40,9 @@ class ServiceAppointmentList extends React.Component {
           }
         });
 
+     
+
         const filtered = appointments.filter((appt) => appt.status === false);
-        console.log(filtered)
         this.setState({
           appointments: filtered,
         });
@@ -67,6 +69,7 @@ class ServiceAppointmentList extends React.Component {
   render() {
     return (
       <div>
+      <div className="container-fluid">
         <table className="table table-striped ">
           <thead className="table-dark">
             <tr>
@@ -82,7 +85,6 @@ class ServiceAppointmentList extends React.Component {
           </thead>
           <tbody>
             {this.state.appointments.map((appointment) => {
-              console.log(appointment)
               return (
                 <tr key={appointment.id}>
                   {this.showVIP(appointment)}
@@ -114,6 +116,7 @@ class ServiceAppointmentList extends React.Component {
             Create new Appointment
           </Link>
         </div>
+      </div>
       </div>
     );
   }

@@ -29,7 +29,7 @@ const CustomerForm = () => {
             'address': customerAddress,
             'phone_number': customerPhoneNumber
         }
-        const customerUrl = `http://localhost:8090/api/customers/`
+        const customerUrl = 'http://localhost:8090/api/customers/'
         const fetchConfig = {
             method: 'post',
             body: JSON.stringify(newCustomer),

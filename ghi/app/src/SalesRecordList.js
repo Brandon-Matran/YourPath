@@ -35,9 +35,9 @@ const SalesList = () =>  {
             </thead>
             <tbody>
                 {sales.map(sale => {
-               
+
                     return (
-                        <tr key={sale.href}>
+                        <tr key={sale.id}>
                             <td>{sale.sales_person.name}</td>
                             <td>{sale.sales_person.employee_number}</td>
                             <td>{sale.customer.name}</td>
