@@ -40,6 +40,11 @@ function Nav() {
                     <NavLink className="nav-link dropdown-item" to="/manufacturers/new" id="dropdown">Manufacturer</NavLink>
 
                   <li>
+                  </li>
+
+                    <NavLink className="nav-link dropdown-item" to="/sales/new" id="dropdown">Sales Record</NavLink>
+
+                  <li>
 
                     <NavLink className="nav-link dropdown-item" to="/appointments/new" id="dropdown">Schedule Service Appointment</NavLink>
                     </li>

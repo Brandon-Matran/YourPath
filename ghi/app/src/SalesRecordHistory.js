@@ -15,13 +15,13 @@ class SalesRecordHistory extends React.Component {
 
     async handleSalesPersonChange(event) {
         const value = event.target.value;
-        const personSalesUrl = `http://localhost:8090/api/sales_history/${value}`;
+        const personSalesUrl = `http://localhost:8090/api/sales/sales_person/${value}`;
         const personSalesResponse = await fetch(personSalesUrl);
 
         if (personSalesResponse.ok) {
             const personSalesData = await personSalesResponse.json();
 
-            this.setState({ salesHistory: [personSalesData] });
+            this.setState({ salesHistory: personSalesData.sales_person });
 
         }
     }
@@ -66,13 +66,13 @@ class SalesRecordHistory extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.state.salesHistory.map(sale => {
+                        {this.state?.salesHistory?.map(sale => {
                             return (
-                                <tr key={sale.sales_history.id}>
-                                    <td>{sale.sales_history.sales_person.name}</td>
-                                    <td>{sale.sales_history.customer.name}</td>
-                                    <td>{sale.sales_history.automobile.vin}</td>
-                                    <td>{sale.sales_history.sale_price}</td>
+                                <tr key={sale.id}>
+                                    <td>{sale.sales_person.name}</td>
+                                    <td>{sale.customer.name}</td>
+                                    <td>{sale.automobile.vin}</td>
+                                    <td>{sale.sale_price}</td>
                                 </tr>
                             );
                         })}

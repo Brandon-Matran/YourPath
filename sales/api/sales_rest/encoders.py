@@ -20,6 +20,7 @@ class CustomerEncoder(ModelEncoder):
         "phone_number"
     ]
 
+
 class SalesPersonEncoder(ModelEncoder):
     model = SalesPerson
     properties = [
@@ -27,6 +28,7 @@ class SalesPersonEncoder(ModelEncoder):
         "name",
         "employee_number"
         ]
+ 
 
 class SaleRecordEncoder(ModelEncoder):
     model = SaleRecord

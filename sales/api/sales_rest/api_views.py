@@ -311,3 +311,15 @@ def api_get_auto_vo_list(request):
             AutoVOEncoder,
             safe=False
         )
+
+
+@require_http_methods(["GET"])
+def api_get_sales_record_person(request, id):
+    if request.method == "GET":
+        sales_person = SaleRecord.objects.filter(sales_person__id=id)
+        return JsonResponse(
+            {"sales_person": sales_person},
+            SaleRecordEncoder,
+            safe=False
+
+        )
