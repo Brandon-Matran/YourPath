@@ -5,6 +5,7 @@ from .api_views import (
     api_get_automobileVO,
     api_list_appointments,
     api_show_appointment,
+    complete_appointment,
 )
 
 urlpatterns = [
@@ -13,4 +14,5 @@ urlpatterns = [
     path("technicians/", api_list_technicians, name="api_list_technician"),
     path("technicians/<int:pk>/", api_show_technician, name="api_show_technician"),
     path("automobiles/", api_get_automobileVO, name="api_get_automobileVO"),
+    path("appointments/<int:id>/complete", complete_appointment, name="complete_appointment"),
 ]

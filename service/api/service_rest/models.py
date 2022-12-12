@@ -25,6 +25,10 @@ class Appointment(models.Model):
     def __str__(self):
         return f"{self.owner}'s checkup for {self.reason}"
 
+    def complete(self):
+        self.status = True
+        self.save()
+
 
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=50, unique=True)
@@ -32,4 +36,3 @@ class AutomobileVO(models.Model):
 
     def __str__(self):
         return f"{self.vin}"
-

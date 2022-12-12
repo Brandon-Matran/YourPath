@@ -5,9 +5,12 @@ import DeleteButton from './ServiceDelete';
 import './index.css'
 
 class ServiceAppointmentList extends React.Component {
+
+
   state = {
     technicians: [],
     appointments: [],
+
   };
 
   handleChange = (event) => {
@@ -15,6 +18,7 @@ class ServiceAppointmentList extends React.Component {
     const name = event.target.name;
     this.setState({ [name]: value });
   };
+
 
   async componentDidMount() {
     const url = "http://localhost:8080/api/appointments/";
@@ -26,6 +30,10 @@ class ServiceAppointmentList extends React.Component {
         const data = await response.json();
         const automobileData = await automobileResponse.json();
         const automobiles = automobileData.autos;
+
+        this.setState({
+
+        })
         const vinObj = {};
         automobiles.forEach((car) => (vinObj[car.vin] = car.vin));
 
@@ -40,7 +48,7 @@ class ServiceAppointmentList extends React.Component {
           }
         });
 
-     
+
 
         const filtered = appointments.filter((appt) => appt.status === false);
         this.setState({
@@ -123,3 +131,6 @@ class ServiceAppointmentList extends React.Component {
 }
 
 export default ServiceAppointmentList;
+
+
+//===================================================================================================================================================================================================================================================

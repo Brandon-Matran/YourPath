@@ -19,6 +19,7 @@ class ServiceHistory extends React.Component {
         this.setState({
           filteredAppointments: appoints,
           originalAppointments: appoints,
+
         });
       }
     } catch (e) {

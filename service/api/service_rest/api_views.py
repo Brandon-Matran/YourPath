@@ -45,6 +45,8 @@ def api_show_appointment(request, pk):
     elif request.method == "PUT":
         content = json.loads(request.body)
 
+
+
         Appointment.objects.filter(id=pk).update(**content)
         appointment = Appointment.objects.get(id=pk)
         return JsonResponse(
@@ -105,6 +107,7 @@ def api_show_technician(request, pk):
         )
     elif request.method == "PUT":
         content = json.loads(request.body)
+        print(content)
 
         Technician.objects.filter(id=pk).update(**content)
         technician = Technician.objects.get(id=pk)
@@ -117,3 +120,11 @@ def api_show_technician(request, pk):
     else:
         count, _ = Technician.objects.filter(id=pk).delete()
         return JsonResponse({"deleted": count > 0})
+
+@require_http_methods(["PUT"])
+def complete_appointment(request, id):
+    appointment = Appointment.objects.get(id=id)
+    appointment.complete()
+    return JsonResponse(
+        {"completed": appointment.status}
+    )

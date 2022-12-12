@@ -1,55 +1,3 @@
-// import React, { useState, useEffect } from 'react'
-
-
-// const SalesRecordHistory = () => {
-//     const [sales, setSales] = useState([]);
-
-
-//     useEffect((id) => {
-//         fetch(`http://localhost:8090/api/sales_person/${id}`)
-//             .then(response => response.json())
-//             .then(data => {
-//                 setSales(data.sales)
-//             })
-//             .catch(e => console.log('error', e))
-//     }, [])
-
-//     return (
-//         <>
-//         <table className="table table-striped">
-//             <thead>
-//                 <tr>
-//                     <th>Sales Person</th>
-//                     <th>Customer</th>
-//                     <th>VIN</th>
-//                     <th>Sale Price</th>
-//                 </tr>
-//             </thead>
-//             <tbody>
-//                 {sales.map(sale => {
-//                     console.log(sale)
-//                     return (
-//                         <tr key={sale.href}>
-//                             <td>{sale.sales_person.name}</td>
-//                             <td>{sale.customer.name}</td>
-//                             <td>{sale.automobile.vin}</td>
-//                             <td>{}</td>
-//                             <td>{sale.sale_price}</td>
-//                         </tr>
-//                     )
-//                 })}
-//             </tbody>
-//             </table>
-//             </>
-//             )
-
-
-// }
-
-
-// export default SalesRecordHistory
-
-
 import React from 'react';
 
 
@@ -119,7 +67,6 @@ class SalesRecordHistory extends React.Component {
                     </thead>
                     <tbody>
                         {this.state.salesHistory.map(sale => {
-                            console.log(sale)
                             return (
                                 <tr key={sale.sales_history.id}>
                                     <td>{sale.sales_history.sales_person.name}</td>
@@ -137,3 +84,57 @@ class SalesRecordHistory extends React.Component {
 }
 
 export default SalesRecordHistory;
+
+
+
+
+// import React, { useState, useEffect } from 'react'
+
+
+// const SalesRecordHistory = () => {
+//     const [sales, setSales] = useState([]);
+
+
+//     useEffect((id) => {
+//         fetch(`http://localhost:8090/api/sales_person/${id}`)
+//             .then(response => response.json())
+//             .then(data => {
+//                 setSales(data.sales)
+//             })
+//             .catch(e => console.log('error', e))
+//     }, [])
+
+//     return (
+//         <>
+//         <table className="table table-striped">
+//             <thead>
+//                 <tr>
+//                     <th>Sales Person</th>
+//                     <th>Customer</th>
+//                     <th>VIN</th>
+//                     <th>Sale Price</th>
+//                 </tr>
+//             </thead>
+//             <tbody>
+//                 {sales.map(sale => {
+//                     console.log(sale)
+//                     return (
+//                         <tr key={sale.href}>
+//                             <td>{sale.sales_person.name}</td>
+//                             <td>{sale.customer.name}</td>
+//                             <td>{sale.automobile.vin}</td>
+//                             <td>{}</td>
+//                             <td>{sale.sale_price}</td>
+//                         </tr>
+//                     )
+//                 })}
+//             </tbody>
+//             </table>
+//             </>
+//             )
+
+
+// }
+
+
+// export default SalesRecordHistory

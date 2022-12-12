@@ -36,14 +36,18 @@ function Nav() {
                   <li>
                     <NavLink className="nav-link dropdown-item" to="/sales_person/new" id="dropdown">Sales Person</NavLink>
                   </li>
-                  <li className="nav-item">
-                    <NavLink className="nav-link" to="/manufacturers/new" id="dropdown">Manufacturer</NavLink>
-                  </li>
+
+                    <NavLink className="nav-link dropdown-item" to="/manufacturers/new" id="dropdown">Manufacturer</NavLink>
+
                   <li>
-                    <NavLink className="nav-link" to="/appointments/new" id="dropdown">Schedule Service Appointment</NavLink>
-                  </li>
+
+                    <NavLink className="nav-link dropdown-item" to="/appointments/new" id="dropdown">Schedule Service Appointment</NavLink>
+                    </li>
+
                   <li>
-                  <NavLink className="nav-link" to="/technicians/new" id="dropdown">Technician</NavLink>
+
+                  <NavLink className="nav-link dropdown-item" to="/technicians/new" id="dropdown">Technician</NavLink>
+
                 </li>
                 </div>
               </div>
@@ -53,28 +57,28 @@ function Nav() {
                 </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <li>
-                    <NavLink className="nav-link" to="/models" id="dropdown">Vehicle Models</NavLink>
+                    <NavLink className="nav-link dropdown-item" to="/models" id="dropdown">Vehicle Models</NavLink>
                   </li>
                   <li>
-                    <NavLink className="nav-link" to="/automobiles" id="dropdown">Automobiles</NavLink>
+                    <NavLink className="nav-link dropdown-item" to="/automobiles" id="dropdown">Automobiles</NavLink>
                   </li>
                   <li>
-                    <NavLink className="nav-link" to="/sales" id="dropdown">Sales Record</NavLink>
+                    <NavLink className="nav-link dropdown-item" to="/sales" id="dropdown">Sales Record</NavLink>
                   </li>
                   <li>
-                    <NavLink className="nav-link" to="/sales_history" id="dropdown">Sales Records</NavLink>
+                    <NavLink className="nav-link dropdown-item" to="/sales_history" id="dropdown">Sales Records</NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className="nav-link" to="/manufacturers" id="dropdown">Manufacturers</NavLink>
+                    <NavLink className="nav-link dropdown-item" to="/manufacturers" id="dropdown">Manufacturers</NavLink>
                   </li>
                   <li>
-                    <NavLink className="nav-link" to="/technicians/" id="dropdown">Technician List</NavLink>
+                    <NavLink className="nav-link dropdown-item" to="/technicians/" id="dropdown">Technician List</NavLink>
                   </li>
                   <li>
-                    <NavLink className="nav-link" to="/appointments/" id="dropdown">Service Appointments</NavLink>
+                    <NavLink className="nav-link dropdown-item" to="/appointments/" id="dropdown">Service Appointments</NavLink>
                   </li>
                   <li>
-                    <NavLink className="nav-link" to="/search" id="dropdown">Service History</NavLink>
+                    <NavLink className="nav-link dropdown-item" to="/search" id="dropdown">Service History</NavLink>
                   </li>
                 </div>
               </div>
