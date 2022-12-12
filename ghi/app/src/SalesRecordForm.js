@@ -299,7 +299,7 @@ class SalesRecordForm extends React.Component {
                                 <input onChange={this.handlePriceChange} value={this.state.sale_price} required type="text" name="sale_price" id="sale_price" className="form-control" />
                                 <label>Sales Price</label>
                             </div>
-                            <button className="btn btn-primary">Create</button>
+                            <button className="btn btn-secondary">Create</button>
                         </form>
 
                     </div>

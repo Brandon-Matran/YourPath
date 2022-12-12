@@ -67,7 +67,7 @@ const CustomerForm = () => {
                             <label>Phone Number</label>
                         </div>
 
-                        <button className="btn btn-primary">Create</button>
+                        <button className="btn btn-secondary">Create</button>
                     </form>
                 </div>
             </div>

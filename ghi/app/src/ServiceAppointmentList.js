@@ -40,7 +40,7 @@ class ServiceAppointmentList extends React.Component {
           }
         });
 
-     
+
 
         const filtered = appointments.filter((appt) => appt.status === false);
         this.setState({
@@ -57,7 +57,7 @@ class ServiceAppointmentList extends React.Component {
       return (
         <td>
           <img
-            className="resize"
+            className="img-thumbnail" width="100px" height= "100px"
             src="https://static.vecteezy.com/system/resources/previews/004/516/138/original/abstract-luxury-vip-members-background-illustration-free-vector.jpg"
           ></img>
         </td>
