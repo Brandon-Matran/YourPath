@@ -97,7 +97,7 @@ class VehicleModelForm extends React.Component {
                                     })}
                                 </select>
                             </div>
-                            <button className="btn btn-success btn-default">Create</button>
+                            <button className="btn btn-secondary btn-default">Create</button>
                         </form>
                     </div>
                 </div>
@@ -106,4 +106,3 @@ class VehicleModelForm extends React.Component {
     };
 };
 export default VehicleModelForm
-

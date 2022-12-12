@@ -30,7 +30,7 @@ class VehicleModelList extends React.Component {
                                 <tr key={model.id}>
                                     <td>{model.name}</td>
                                     <td>{model.manufacturer.name}</td>
-                                    <td><img src={model.picture_url}/></td>
+                                    <td><img src={model.picture_url} className='img-thumbnail' width="300px" height="300px"/></td>
                               </tr>
                             )
                         })}
@@ -42,3 +42,5 @@ class VehicleModelList extends React.Component {
 }
 
 export default VehicleModelList
+
+{/* <td><img src={ hat.picture_url } className='img-thumbnail' width="100px" height="100px"/></td> */}

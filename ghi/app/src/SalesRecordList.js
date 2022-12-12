@@ -48,7 +48,9 @@ const SalesList = () =>  {
                 })}
             </tbody>
             </table>
-            <Link to={"/sales/new"}>Create a Sales Record</Link>
+            <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <Link to="/sales/new" className="btn btn-outline-secondary btn-md px-2 gap-1"> Create a Sales Record</Link>
+            </div>
             </>
     )
 }
