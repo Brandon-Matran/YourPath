@@ -10,7 +10,7 @@ build project:
     - npm install
     - npm run build
   artifacts:
-    path:
+    paths:
       - ghi/app/build/
 
 netlify:
