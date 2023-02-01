@@ -8,6 +8,9 @@ build project:
   script:
     - npm install
     - npm build
+  artifacts:
+    path:
+      - build/
 
 netlify:
   stage: deploy
