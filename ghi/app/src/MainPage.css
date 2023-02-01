@@ -1,0 +1,41 @@
+@keyframes fadeOut {
+    0% {
+    opacity: 1;
+    }
+    100% {
+    opacity: 0;
+    }
+    }
+
+.greeting {
+font-size: 40px;
+margin-left: 60%;
+transform: translateX(-50%);
+animation-delay: 1s;
+animation: fadeOut 2s forwards;
+}
+
+.greeting2 {
+    font-size: 40px;
+    margin-left: 60%;
+    transform: translateX(-50%);
+    animation-delay: 2s;
+    animation: fadeOut 2s forwards;
+}
+
+
+.logo {
+font-size: 60px;
+animation-delay: 5s;
+animation: fadeIn ease-in 5s;
+animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+    opacity: 0;
+    }
+    100% {
+    opacity: 1;
+    }
+    }

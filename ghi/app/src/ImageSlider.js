@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import './ImageSlider.css'
 const ImageSlider = ({ slides }) => {
     const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -17,6 +17,7 @@ const ImageSlider = ({ slides }) => {
         backgroundPosition: 'center',
         backgroundSize: "cover",
         backgroundImage: `url(${slides[currentIndex].url})`,
+
 
 
     }
@@ -59,7 +60,7 @@ const ImageSlider = ({ slides }) => {
 
             <div  style={sliderStyles}>
                 <div style={leftArrowStyles} onClick={goToPrevious}> ❰ </div>
-                <div style={slideStyles}>
+                <div className="slider" style={slideStyles}>
                     <div style={rightArrowStyles} onClick={goToNext}>  ❱  </div>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import './VehicleModelForm.css'
 
 class VehicleModelForm extends React.Component {
     constructor(props) {
@@ -75,7 +76,7 @@ class VehicleModelForm extends React.Component {
         return (
             <div className="row">
                 <div className="offset-3 col-6">
-                    <div className="shadow p-4 mt-4">
+                    <div className="shadow p-4 mt-4 modelForm">
                         <h1>Create a Model</h1>
                         <form onSubmit={this.handleSubmit} id="create-model-form">
                             <div className="form-floating mb-3">

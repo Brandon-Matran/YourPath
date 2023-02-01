@@ -26,22 +26,22 @@ code {
   transition-duration: 0.5s;
 }
 
-.container {
+/* .container {
   margin-left: -10%;
-}
+} */
 
 #slogan {
   text-align: center;
 }
 
-.fade-in {
+/* .fade-in {
   transition: opacity 1s ease;
 }
 
 .fade-out {
   opacity: 0;
   transition: opacity 1s ease;
-}
+} */
 
 .resize {
   width: 100px;

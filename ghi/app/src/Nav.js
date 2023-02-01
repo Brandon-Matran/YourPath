@@ -10,15 +10,15 @@ function Nav() {
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/">CarCar</NavLink>
+          <NavLink className="navbar-brand" to="/">Your Path</NavLink>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
-              </li>
+              </li> */}
               <div className="dropdown">
                 <button className="btn btn-outline-light dropdown-toggle mr-1" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" data-bs-display="static" aria-haspopup="true" aria-expanded="false">
                   Create...
@@ -27,9 +27,9 @@ function Nav() {
                   <li>
                     <Link className="nav-link dropdown-item" to="/models/new" id="dropdown">Model</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <NavLink className="nav-link dropdown-item" to="/automobiles/new" id="dropdown">Automobile</NavLink>
-                  </li>
+                  </li> */}
                   <li>
                     <NavLink className="nav-link dropdown-item" to="/customers" id="dropdown">Customer</NavLink>
                   </li>
