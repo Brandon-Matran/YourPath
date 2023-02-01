@@ -9,6 +9,9 @@ build project:
     - cd ghi
     - npm install
     - npm run build
+  artifacts:
+    path:
+      - ghi/app/build/
 
 netlify:
   stage: deploy
