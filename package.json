@@ -1,0 +1,19 @@
+{
+  "name": "project-beta",
+  "version": "1.0.0",
+  "description": "Team:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/b_matran/your-path.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/b_matran/your-path/issues"
+  },
+  "homepage": "https://gitlab.com/b_matran/your-path#readme"
+}
