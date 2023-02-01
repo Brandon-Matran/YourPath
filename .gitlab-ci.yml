@@ -4,7 +4,7 @@ stages:
 
 build project:
   stage: build
-  image: node: 15
+  image: node:15
   script:
     - npm install
     - npm build
