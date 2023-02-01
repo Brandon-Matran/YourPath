@@ -18,7 +18,8 @@ urlpatterns = [
     path("sales/", api_list_sales, name="api_list_sales"),
     path("sales/<int:id>/", api_show_sale, name="api_show_sales"),
     path("sales_person/", api_list_sales_person, name="api_list_sales_person"),
-    path("sales_person/<int:id>/", api_show_sales_person, name="api_show_sales_person"),
+    path("sales_person/<int:id>/", api_show_sales_person
+    , name="api_show_sales_person"),
     path(
         "sales_history/<int:id>/", api_show_sales_history, name="api_show_sales_history"
     ),

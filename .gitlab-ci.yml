@@ -1,13 +1,37 @@
 stages:
   - test   # Run tests first
   - build  # Run build after tests
+  - deploy # Run deploy after build
 
-
-front-end-build-job:
+build-front-end-job:
+  rules:
+    # Only run if pushing to the main branch
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   stage: build
   image: node:lts-bullseye
-
+  needs:
+    - api-unit-test-job  # These two jobs must succeed for
+    - lint-test-job      # this build-job to run
   script:
     - cd ghi
     - npm install
     - npm run build  # Build the React application
+  artifacts:
+    paths:
+      - ghi/build/  # Save all of the files in the build path
+
+
+pages:
+  stage: deploy
+  rules:
+    # Only run if pushing to the main branch
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  dependencies:
+    - build-front-end-job
+  needs:
+    - build-front-end-job
+  script:
+    - mv ghi/build public
+  artifacts:
+    paths:
+      public
