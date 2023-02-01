@@ -14,7 +14,7 @@ build-front-end-job:
     - npm run build  # Build the React application
   artifacts:
     paths:
-      - ghi/build/  # Save all of the files in the build path
+      - ghi/app/build/  # Save all of the files in the build path
 
 pages:
   stage: deploy
