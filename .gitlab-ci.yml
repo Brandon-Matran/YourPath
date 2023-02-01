@@ -4,14 +4,15 @@ stages:
 
 build project:
   stage: build
-  image: node:15
+  image: node:lts-bullseye
   script:
+    - cd ghi
     - npm install
     - npm run build
 
 netlify:
   stage: deploy
-  image: node:15
+  image: node:lts-bullseye
   script:
     - npm install -g netlify-cli
     - netlify deploy --dir==build --prod
