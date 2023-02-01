@@ -6,7 +6,7 @@ build project:
   stage: build
   image: node:lts-bullseye
   script:
-    - cd ghi
+    - cd ghi/app/
     - npm install
     - npm run build
     - cp build/index.html build/404.html
