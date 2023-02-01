@@ -14,9 +14,16 @@ build project:
     paths:
       - ghi/build/
 
-netlify:
+pages:
   stage: deploy
-  image: node:lts-bullseye
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH  # CHANGE BACK TO CI_DEFAULT_BRANCH WHEN DEPLOYING ON MAIN
+  dependencies:
+    - build-front-end-job
+  needs:
+    - build-front-end-job
   script:
-    - npm install -g netlify-cli
-    - netlify deploy --dir==build --prod
+    - mv ghi/build/ public
+  artifacts:
+    paths:
+      - public
