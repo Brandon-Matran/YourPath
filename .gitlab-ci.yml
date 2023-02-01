@@ -10,7 +10,7 @@ build-front-end-job:
     - npm run build
   artifact:
     paths:
-      - build/
+      - build/ghi
 
 netlify:
   stage: deploy
