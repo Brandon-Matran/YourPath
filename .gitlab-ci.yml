@@ -1,17 +1,29 @@
-image: node:latest
-
 stages:
+  - build
   - deploy
 
-deploy:
-  stage: deploy
-  environment:
-    name: production
-    url: https://yourpath1.netlify.app
-  only:
-    - main
+build project:
+  stage: build
+  image: node:latest
   script:
-    - npm i
-    # your build command
+    - cd ghi
+    - npm install
     - npm run build
-    - npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
+  artifacts:
+    paths:
+      - ghi/build/
+
+pages:
+  stage: deploy
+  rules:
+    # Only run if pushing to the main branch
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  dependencies:
+    - build-front-end-job
+  needs:
+    - build-front-end-job
+  script:
+    - mv ghi/build public
+  artifacts:
+    paths:
+      public
