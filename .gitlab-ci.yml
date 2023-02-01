@@ -1,32 +1,25 @@
 stages:
+  - test
   - build
   - deploy
 
-build-front-end-job:
-  rules:
-    # Only run if pushing to the main branch
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  stage: build
-  image: node:lts-bullseye
+test project:
+  stage: test
+  image: node:15
   script:
-    - cd ghi
-    - npm install
-    - npm run build  # Build the React application
-  artifacts:
-    paths:
-      - ghi/app/build/  # Save all of the files in the build path
+    - yarn install
+    - yarn test
 
-pages:
-  stage: deploy
-  rules:
-    # Only run if pushing to the main branch
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  dependencies:
-    - build-front-end-job
-  needs:
-    - build-front-end-job
+build project:
+  stage: build
+  image: node: 15
   script:
-    - mv ghi/app/build public
-  artifacts:
-    paths:
-      - public
+    - yarn install
+    - yarn build
+
+netlify:
+  stage: deploy
+  image: node:15
+  script:
+    - npm install -g netlify-cli
+    - netlify deploy --dir==build --prod
