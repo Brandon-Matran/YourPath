@@ -18,6 +18,7 @@ import SalesRecordHistory from './SalesRecordHistory';
 import SalesList from './SalesRecordList';
 import VehicleModelForm from './VehicleModelForm';
 import VehicleModelList from './VehicleModelList';
+import AutomobilesForm from './AutomobileFormFunctional';
 
 
 
@@ -28,7 +29,7 @@ function App() {
       <div className="container-fluid">
         <Routes>
           <Route path="/" element={<MainPage />} />
-          <Route path="/automobiles/new" element={<AutomobileForm />} />
+          {/* <Route path="/automobiles/new" element={<AutomobileForm />} /> */}
           <Route path="/automobiles" element={<AutomobileList />} />
           <Route path="/models" element={<VehicleModelList />} />
           <Route path="/models/new" element={<VehicleModelForm />} />
@@ -43,7 +44,8 @@ function App() {
           <Route path="/manufacturers/new" element={<ManufacturerForm />} />
           <Route path="/appointments/" element={<ServiceAppointmentList />} />
           <Route path="/appointments/new" element={<ServiceAppointmentForm />} />
-          <Route path="search/" element={<ServiceHistory />} />
+          <Route path="search/" element ={<ServiceHistory />} />
+          <Route path="/automobiles/new" element={<AutomobilesForm />} />
         </Routes>
         {/* <div className="container"> */}
         {/* <Routes> */}

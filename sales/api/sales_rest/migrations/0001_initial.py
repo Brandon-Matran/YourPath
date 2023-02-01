@@ -8,44 +8,96 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='AutoVO',
+            name="AutoVO",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('color', models.CharField(max_length=50)),
-                ('year', models.PositiveSmallIntegerField()),
-                ('vin', models.CharField(max_length=17, unique=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("color", models.CharField(max_length=50)),
+                ("year", models.PositiveSmallIntegerField()),
+                ("vin", models.CharField(max_length=17, unique=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Customer',
+            name="Customer",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
-                ('address', models.TextField(max_length=500, null=True)),
-                ('phone_number', models.PositiveSmallIntegerField(null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200)),
+                ("address", models.TextField(max_length=500, null=True)),
+                ("phone_number", models.PositiveSmallIntegerField(null=True)),
             ],
         ),
         migrations.CreateModel(
-            name='SalesPerson',
+            name="SalesPerson",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=200)),
-                ('employee_number', models.PositiveSmallIntegerField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=200)),
+                ("employee_number", models.PositiveSmallIntegerField()),
             ],
         ),
         migrations.CreateModel(
-            name='SaleRecord',
+            name="SaleRecord",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('sale_price', models.IntegerField()),
-                ('automobile', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='sales', to='sales_rest.autovo')),
-                ('customer', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='sales', to='sales_rest.customer')),
-                ('sales_person', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='sales', to='sales_rest.salesperson')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("sale_price", models.IntegerField()),
+                (
+                    "automobile",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="sales",
+                        to="sales_rest.autovo",
+                    ),
+                ),
+                (
+                    "customer",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="sales",
+                        to="sales_rest.customer",
+                    ),
+                ),
+                (
+                    "sales_person",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="sales",
+                        to="sales_rest.salesperson",
+                    ),
+                ),
             ],
         ),
     ]

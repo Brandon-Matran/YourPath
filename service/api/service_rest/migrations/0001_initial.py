@@ -8,36 +8,66 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='AutomobileVO',
+            name="AutomobileVO",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('vin', models.CharField(max_length=50, unique=True)),
-                ('import_href', models.CharField(max_length=35, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("vin", models.CharField(max_length=50, unique=True)),
+                ("import_href", models.CharField(max_length=35, null=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Technician',
+            name="Technician",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('employee_number', models.CharField(max_length=100, unique=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("employee_number", models.CharField(max_length=100, unique=True)),
             ],
         ),
         migrations.CreateModel(
-            name='Appointment',
+            name="Appointment",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('vin', models.CharField(max_length=50)),
-                ('owner', models.CharField(max_length=150)),
-                ('scheduled_time', models.DateTimeField()),
-                ('reason', models.TextField()),
-                ('status', models.BooleanField(default=False)),
-                ('technician', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='technician', to='service_rest.technician')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("vin", models.CharField(max_length=50)),
+                ("owner", models.CharField(max_length=150)),
+                ("scheduled_time", models.DateTimeField()),
+                ("reason", models.TextField()),
+                ("status", models.BooleanField(default=False)),
+                (
+                    "technician",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.PROTECT,
+                        related_name="technician",
+                        to="service_rest.technician",
+                    ),
+                ),
             ],
         ),
     ]

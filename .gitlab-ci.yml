@@ -1,0 +1,13 @@
+stages:
+  - test   # Run tests first
+  - build  # Run build after tests
+
+
+front-end-build-job:
+  stage: build
+  image: node:lts-bullseye
+
+  script:
+    - cd ghi
+    - npm install
+    - npm run build  # Build the React application

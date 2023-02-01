@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+
 class Technician(models.Model):
     name = models.CharField(max_length=100)
     employee_number = models.CharField(max_length=100, unique=True)
@@ -15,10 +16,8 @@ class Appointment(models.Model):
     owner = models.CharField(max_length=150)
     scheduled_time = models.DateTimeField()
     technician = models.ForeignKey(
-        Technician,
-        related_name="appointment",
-        on_delete=models.PROTECT
-        )
+        Technician, related_name="appointment", on_delete=models.PROTECT
+    )
     reason = models.TextField()
     status = models.BooleanField(default=False)
 
@@ -32,7 +31,7 @@ class Appointment(models.Model):
 
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=50, unique=True)
-    import_href=models.CharField(max_length=35, null=True)
+    import_href = models.CharField(max_length=35, null=True)
 
     def __str__(self):
         return f"{self.vin}"

@@ -20,16 +20,13 @@ def get_auto():
     content = json.loads(response.content)
     for automobile in content["autos"]:
         AutoVO.objects.update_or_create(
-            color=automobile["color"],
-            year=automobile["year"],
-            vin=automobile["vin"]
-
+            color=automobile["color"], year=automobile["year"], vin=automobile["vin"]
         )
 
 
 def poll():
     while True:
-        print('Sales poller polling for data')
+        print("Sales poller polling for data")
         try:
             # Write your polling logic, here
             get_auto()
