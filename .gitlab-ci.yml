@@ -2,7 +2,7 @@ stages:
   - build
   - deploy
 
-build project:
+build-front-end-job:
   stage: build
   image: node:latest
   script:
