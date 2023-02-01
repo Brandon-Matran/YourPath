@@ -2,6 +2,9 @@ stages:
   - build
   - deploy
 
+  variables:
+    CORS_HOST: https://b_matran.gitlab.io
+
 build project:
   stage: build
   image: node:lts-bullseye
