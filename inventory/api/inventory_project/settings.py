@@ -52,6 +52,7 @@ MIDDLEWARE = [
 ALLOWED_HOSTS = [
     "localhost",
     "inventory-api",
+    "b_matran.gitlab.io",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
