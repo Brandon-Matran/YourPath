@@ -12,7 +12,7 @@ build project:
     - cp build/index.html build/404.html
   artifacts:
     paths:
-      - ghi/app/build/
+      - ghi/build/
 
 netlify:
   stage: deploy
