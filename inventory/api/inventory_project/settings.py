@@ -30,6 +30,7 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     "inventory_rest.apps.InventoryRestConfig",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -52,7 +53,6 @@ MIDDLEWARE = [
 ALLOWED_HOSTS = [
     "localhost",
     "inventory-api",
-    "b_matran.gitlab.io",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -61,11 +61,15 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
+    "https://b_matran.gitlab.io",
     "http://localhost:3000",
     "http://localhost:8090",
     "http://localhost:8080",
-    "https://b_matran.gitlab.io",
 
+
+]
+CORS_ORIGIN_WHITELIST = [
+    "https://b_matran.gitlab.io",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
