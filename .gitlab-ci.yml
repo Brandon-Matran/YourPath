@@ -1,34 +1,12 @@
-stages:
-  - test   # Run tests first
-  - build  # Run build after tests
-  - deploy # Run deploy after build
+default:
+  image: node:14-buster
 
-build-front-end-job:
-  rules:
-    # Only run if pushing to the main branch
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  stage: build
-  image: node:lts-bullseye
-  script:
-    - cd ghi
+before_script:
     - npm install
-    - npm run build  # Build the React application
-  artifacts:
-    paths:
-      - ghi/build/  # Save all of the files in the build path
+    - npm install -g netlify-cli --unsafe-perm=true
+    - npm run build
 
-
-pages:
+deploy-job:
   stage: deploy
-  rules:
-    # Only run if pushing to the main branch
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  dependencies:
-    - build-front-end-job
-  needs:
-    - build-front-end-job
   script:
-    - mv ghi/build public
-  artifacts:
-    paths:
-      - public
+    - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir public/ --prod
