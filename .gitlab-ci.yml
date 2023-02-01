@@ -6,24 +6,15 @@ build-front-end-job:
   stage: build
   image: node:latest
   script:
-    - cd ghi
     - npm install
     - npm run build
-  artifacts:
+  artifact:
     paths:
-      - ghi/build/
+      - build/
 
-pages:
+netlify:
   stage: deploy
-  rules:
-    # Only run if pushing to the main branch
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  dependencies:
-    - build-front-end-job
-  needs:
-    - build-front-end-job
+  image: node:latest
   script:
-    - mv ghi/build public
-  artifacts:
-    paths:
-      - public
+    - npm install -g netlify-cli
+    - netlify deploy --dir=build --prod
