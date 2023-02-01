@@ -12,7 +12,7 @@ build project:
     - cp build/index.html build/404.html
   artifacts:
     paths:
-      - ghi/build/
+      - ghi/app/build/
 
 pages:
   stage: deploy
@@ -23,7 +23,7 @@ pages:
   needs:
     - build project
   script:
-    - mv ghi/build/ public
+    - mv ghi/app/build/ public
   artifacts:
     paths:
       - public
